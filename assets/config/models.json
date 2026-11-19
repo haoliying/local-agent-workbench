@@ -1,0 +1,280 @@
+{
+  "$comment": "SimpleWork 预置大模型清单。所有厂商的 baseURL / 协议 / 模型名已预填好，你只需要把 API Key 填进 ~/.simplework/.env（或这里 provider.apiKey，或同名环境变量）即可使用。命令：sw models list / sw models use <provider>:<model> / sw models fetch <provider>（在线拉取该厂商真实模型列表并回写本文件）",
+  "version": 1,
+  "active": {
+    "provider": "deepseek",
+    "model": "deepseek-chat"
+  },
+  "providers": [
+    {
+      "id": "deepseek",
+      "name": "DeepSeek 深度求索",
+      "region": "cn",
+      "protocol": "openai",
+      "baseURL": "https://api.deepseek.com/v1",
+      "apiKeyEnv": "DEEPSEEK_API_KEY",
+      "apiKey": "",
+      "enabled": true,
+      "defaultModel": "deepseek-chat",
+      "docURL": "https://api-docs.deepseek.com/",
+      "note": "国内最常用，性价比高；支持 Function Calling 与流式",
+      "models": [
+        { "id": "deepseek-chat", "label": "DeepSeek-V3 通用对话", "context": 131072, "tools": true },
+        { "id": "deepseek-reasoner", "label": "DeepSeek-R1 推理", "context": 131072, "tools": true }
+      ]
+    },
+    {
+      "id": "zhipu",
+      "name": "智谱 GLM",
+      "region": "cn",
+      "protocol": "openai",
+      "baseURL": "https://open.bigmodel.cn/api/paas/v4",
+      "apiKeyEnv": "ZHIPU_API_KEY",
+      "apiKey": "",
+      "enabled": true,
+      "defaultModel": "glm-4.6",
+      "docURL": "https://docs.bigmodel.cn/",
+      "note": "模型名会随版本更新，建议先跑 sw models fetch zhipu 拉取真实列表",
+      "models": [
+        { "id": "glm-4.6", "label": "GLM-4.6 旗舰", "context": 200000, "tools": true },
+        { "id": "glm-4.5", "label": "GLM-4.5", "context": 128000, "tools": true },
+        { "id": "glm-4-plus", "label": "GLM-4 Plus", "context": 128000, "tools": true },
+        { "id": "glm-4-flash", "label": "GLM-4 Flash 免费/低价", "context": 128000, "tools": true }
+      ]
+    },
+    {
+      "id": "qwen",
+      "name": "通义千问 DashScope",
+      "region": "cn",
+      "protocol": "openai",
+      "baseURL": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+      "apiKeyEnv": "DASHSCOPE_API_KEY",
+      "apiKey": "",
+      "enabled": true,
+      "defaultModel": "qwen-plus",
+      "docURL": "https://help.aliyun.com/zh/model-studio/",
+      "note": "阿里云百炼，OpenAI 兼容模式",
+      "models": [
+        { "id": "qwen-max", "label": "通义千问 Max", "context": 131072, "tools": true },
+        { "id": "qwen-plus", "label": "通义千问 Plus", "context": 131072, "tools": true },
+        { "id": "qwen-turbo", "label": "通义千问 Turbo", "context": 131072, "tools": true },
+        { "id": "qwen-long", "label": "通义千问 Long 超长上下文", "context": 1000000, "tools": true }
+      ]
+    },
+    {
+      "id": "hunyuan",
+      "name": "腾讯混元 Hunyuan",
+      "region": "cn",
+      "protocol": "openai",
+      "baseURL": "https://api.hunyuan.cloud.tencent.com/v1",
+      "apiKeyEnv": "HUNYUAN_API_KEY",
+      "apiKey": "",
+      "enabled": true,
+      "defaultModel": "hunyuan-turbos-latest",
+      "docURL": "https://cloud.tencent.com/document/product/1729",
+      "note": "腾讯官方 OpenAI 兼容端点；Key 在「腾讯云大模型 API → 接入管理 → OpenAI SDK 方式」创建。sw models fetch hunyuan 可拉取你账号下的真实模型列表",
+      "models": [
+        { "id": "hunyuan-turbos-latest", "label": "混元 TurboS（最新·推荐）", "context": 32768, "tools": true },
+        { "id": "hunyuan-t1-latest", "label": "混元 T1 推理", "context": 32768, "tools": true },
+        { "id": "hunyuan-a13b", "label": "混元 A13B 快慢思考", "context": 224000, "tools": true },
+        { "id": "hunyuan-large", "label": "混元 Large 长上下文", "context": 128000, "tools": true },
+        { "id": "hunyuan-standard", "label": "混元 Standard", "context": 32768, "tools": true },
+        { "id": "hunyuan-turbo", "label": "混元 Turbo", "context": 32768, "tools": true }
+      ]
+    },
+    {
+      "id": "moonshot",
+      "name": "月之暗面 Kimi",
+      "region": "cn",
+      "protocol": "openai",
+      "baseURL": "https://api.moonshot.cn/v1",
+      "apiKeyEnv": "MOONSHOT_API_KEY",
+      "apiKey": "",
+      "enabled": true,
+      "defaultModel": "moonshot-v1-128k",
+      "docURL": "https://platform.moonshot.cn/docs",
+      "note": "长文本场景友好",
+      "models": [
+        { "id": "moonshot-v1-8k", "label": "Moonshot 8K", "context": 8192, "tools": true },
+        { "id": "moonshot-v1-32k", "label": "Moonshot 32K", "context": 32768, "tools": true },
+        { "id": "moonshot-v1-128k", "label": "Moonshot 128K", "context": 131072, "tools": true }
+      ]
+    },
+    {
+      "id": "doubao",
+      "name": "火山方舟 豆包",
+      "region": "cn",
+      "protocol": "openai",
+      "baseURL": "https://ark.cn-beijing.volces.com/api/v3",
+      "apiKeyEnv": "ARK_API_KEY",
+      "apiKey": "",
+      "enabled": true,
+      "defaultModel": "doubao-pro-32k",
+      "docURL": "https://www.volcengine.com/docs/82379",
+      "note": "火山方舟通常用推理接入点 ID（ep-xxxx）作为模型名，请先用 sw models fetch doubao 获取你的接入点",
+      "models": [
+        { "id": "doubao-pro-32k", "label": "豆包 Pro 32K", "context": 32768, "tools": true },
+        { "id": "doubao-lite-32k", "label": "豆包 Lite 32K", "context": 32768, "tools": true }
+      ]
+    },
+    {
+      "id": "siliconflow",
+      "name": "硅基流动 SiliconFlow",
+      "region": "cn",
+      "protocol": "openai",
+      "baseURL": "https://api.siliconflow.cn/v1",
+      "apiKeyEnv": "SILICONFLOW_API_KEY",
+      "apiKey": "",
+      "enabled": true,
+      "defaultModel": "Qwen/Qwen2.5-72B-Instruct",
+      "docURL": "https://docs.siliconflow.cn/",
+      "note": "一个 Key 调用几百个开源模型，含部分免费额度",
+      "models": [
+        { "id": "Qwen/Qwen2.5-72B-Instruct", "label": "Qwen2.5-72B", "context": 32768, "tools": true },
+        { "id": "deepseek-ai/DeepSeek-V3", "label": "DeepSeek-V3", "context": 65536, "tools": true },
+        { "id": "THUDM/glm-4-9b-chat", "label": "GLM-4-9B", "context": 32768, "tools": true }
+      ]
+    },
+    {
+      "id": "minimax",
+      "name": "MiniMax 海螺",
+      "region": "cn",
+      "protocol": "openai",
+      "baseURL": "https://api.minimax.chat/v1",
+      "apiKeyEnv": "MINIMAX_API_KEY",
+      "apiKey": "",
+      "enabled": true,
+      "defaultModel": "MiniMax-Text-01",
+      "docURL": "https://platform.minimaxi.com/document",
+      "note": "超长上下文 1M",
+      "models": [
+        { "id": "MiniMax-Text-01", "label": "MiniMax-Text-01", "context": 1000000, "tools": true }
+      ]
+    },
+    {
+      "id": "openai",
+      "name": "OpenAI",
+      "region": "intl",
+      "protocol": "openai",
+      "baseURL": "https://api.openai.com/v1",
+      "apiKeyEnv": "OPENAI_API_KEY",
+      "apiKey": "",
+      "enabled": true,
+      "defaultModel": "gpt-4o",
+      "docURL": "https://platform.openai.com/docs",
+      "note": "如需走代理/中转发，直接改 baseURL 即可",
+      "models": [
+        { "id": "gpt-4o", "label": "GPT-4o", "context": 128000, "tools": true },
+        { "id": "gpt-4o-mini", "label": "GPT-4o mini", "context": 128000, "tools": true },
+        { "id": "gpt-4.1", "label": "GPT-4.1", "context": 1047576, "tools": true },
+        { "id": "gpt-4.1-mini", "label": "GPT-4.1 mini", "context": 1047576, "tools": true }
+      ]
+    },
+    {
+      "id": "anthropic",
+      "name": "Anthropic Claude",
+      "region": "intl",
+      "protocol": "anthropic",
+      "baseURL": "https://api.anthropic.com/v1",
+      "apiKeyEnv": "ANTHROPIC_API_KEY",
+      "apiKey": "",
+      "enabled": true,
+      "defaultModel": "claude-sonnet-4-5",
+      "docURL": "https://docs.anthropic.com/",
+      "note": "使用原生 Messages API（非 OpenAI 兼容层），也支持 /v1/models 拉取最新模型",
+      "models": [
+        { "id": "claude-sonnet-4-5", "label": "Claude Sonnet 4.5", "context": 200000, "tools": true },
+        { "id": "claude-opus-4-1", "label": "Claude Opus 4.1", "context": 200000, "tools": true },
+        { "id": "claude-haiku-4-5", "label": "Claude Haiku 4.5", "context": 200000, "tools": true }
+      ]
+    },
+    {
+      "id": "gemini",
+      "name": "Google Gemini",
+      "region": "intl",
+      "protocol": "openai",
+      "baseURL": "https://generativelanguage.googleapis.com/v1beta/openai/",
+      "apiKeyEnv": "GEMINI_API_KEY",
+      "apiKey": "",
+      "enabled": true,
+      "defaultModel": "gemini-2.5-flash",
+      "docURL": "https://ai.google.dev/gemini-api/docs/openai",
+      "note": "走 Google 官方 OpenAI 兼容端点",
+      "models": [
+        { "id": "gemini-2.5-pro", "label": "Gemini 2.5 Pro", "context": 1048576, "tools": true },
+        { "id": "gemini-2.5-flash", "label": "Gemini 2.5 Flash", "context": 1048576, "tools": true }
+      ]
+    },
+    {
+      "id": "openrouter",
+      "name": "OpenRouter 聚合",
+      "region": "intl",
+      "protocol": "openai",
+      "baseURL": "https://openrouter.ai/api/v1",
+      "apiKeyEnv": "OPENROUTER_API_KEY",
+      "apiKey": "",
+      "enabled": true,
+      "defaultModel": "deepseek/deepseek-chat",
+      "docURL": "https://openrouter.ai/docs",
+      "note": "一个 Key 打通所有主流模型；sw models fetch openrouter 可拉到全量列表",
+      "models": [
+        { "id": "deepseek/deepseek-chat", "label": "DeepSeek V3", "context": 131072, "tools": true },
+        { "id": "anthropic/claude-sonnet-4.5", "label": "Claude Sonnet 4.5", "context": 200000, "tools": true },
+        { "id": "openai/gpt-4o", "label": "GPT-4o", "context": 128000, "tools": true },
+        { "id": "google/gemini-2.5-pro", "label": "Gemini 2.5 Pro", "context": 1048576, "tools": true },
+        { "id": "qwen/qwen-max", "label": "Qwen Max", "context": 131072, "tools": true }
+      ]
+    },
+    {
+      "id": "groq",
+      "name": "Groq",
+      "region": "intl",
+      "protocol": "openai",
+      "baseURL": "https://api.groq.com/openai/v1",
+      "apiKeyEnv": "GROQ_API_KEY",
+      "apiKey": "",
+      "enabled": true,
+      "defaultModel": "llama-3.3-70b-versatile",
+      "docURL": "https://console.groq.com/docs",
+      "note": "推理速度极快",
+      "models": [
+        { "id": "llama-3.3-70b-versatile", "label": "Llama 3.3 70B", "context": 131072, "tools": true },
+        { "id": "openai/gpt-oss-120b", "label": "GPT-OSS 120B", "context": 131072, "tools": true }
+      ]
+    },
+    {
+      "id": "ollama",
+      "name": "Ollama 本地",
+      "region": "local",
+      "protocol": "ollama",
+      "baseURL": "http://127.0.0.1:11434",
+      "apiKeyEnv": "OLLAMA_API_KEY",
+      "apiKey": "ollama",
+      "enabled": false,
+      "defaultModel": "qwen2.5:7b",
+      "docURL": "https://ollama.com/",
+      "note": "完全离线。走 Ollama 原生 /api/chat（工具调用比 /v1 兼容层可靠）。远程机器把 baseURL 换成 http://<IP>:11434 即可",
+      "models": [
+        { "id": "qwen2.5:7b", "label": "Qwen2.5 7B 本地", "context": 32768, "tools": true },
+        { "id": "llama3.2:3b", "label": "Llama 3.2 3B 本地", "context": 131072, "tools": true },
+        { "id": "deepseek-r1:7b", "label": "DeepSeek-R1 7B 本地", "context": 32768, "tools": true }
+      ]
+    },
+    {
+      "id": "local-openai",
+      "name": "本地 OpenAI 兼容服务（vLLM / LM Studio / Xinference）",
+      "region": "local",
+      "protocol": "openai",
+      "baseURL": "http://172.16.9.107:11434/api/generate",
+      "apiKeyEnv": "LOCAL_API_KEY",
+      "apiKey": "EMPTY",
+      "enabled": true,
+      "defaultModel": "qwen2.5:14b",
+      "docURL": "",
+      "note": "改 baseURL 指向你自己的推理服务；sw models fetch local-openai 可读取 /v1/models",
+      "models": [
+        { "id": "qwen2.5:14b", "label": "本地模型qwen2.5:14b", "context": 32768, "tools": true }
+      ]
+    }
+  ]
+}

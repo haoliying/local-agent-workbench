@@ -1,0 +1,58 @@
+{
+  "$comment": "SimpleWork 主配置。所有行为都由本地文件决定，不依赖任何云端服务。改完立即生效（无需重启 serve，/api/reload 会热加载）。",
+  "version": 1,
+  "agent": {
+    "maxTurns": 40,
+    "temperature": 0.2,
+    "maxTokens": 8192,
+    "systemPromptAppend": "",
+    "confirmBeforeTool": false,
+    "autoApprove": ["read_file", "list_dir", "glob", "grep", "web_fetch", "web_search", "todo_write", "use_skill"]
+  },
+  "tools": {
+    "mcpEnabled": true,
+    "mcpToolNamePrefix": "mcp__",
+    "commandTimeoutMs": 120000,
+    "maxOutputChars": 20000,
+    "builtin": {
+      "read_file": true,
+      "write_file": true,
+      "edit_file": true,
+      "list_dir": true,
+      "glob": true,
+      "grep": true,
+      "run_command": true,
+      "web_search": true,
+      "web_fetch": true,
+      "todo_write": true,
+      "use_skill": true
+    }
+  },
+  "shell": {
+    "win32": "bash",
+    "default": "bash",
+    "windowsBashCandidates": [
+      "C:\\Program Files\\Git\\bin\\bash.exe",
+      "C:\\Program Files (x86)\\Git\\bin\\bash.exe"
+    ]
+  },
+  "web": {
+    "host": "127.0.0.1",
+    "port": 8787,
+    "autoOpen": false
+  },
+  "search": {
+    "provider": "duckduckgo",
+    "tavilyApiKeyEnv": "TAVILY_API_KEY",
+    "braveApiKeyEnv": "BRAVE_API_KEY"
+  },
+  "memory": {
+    "enabled": true,
+    "dir": ".simplework/memory",
+    "injectFile": "MEMORY.md"
+  },
+  "ui": {
+    "theme": "light",
+    "language": "zh-CN"
+  }
+}

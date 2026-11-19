@@ -1,0 +1,70 @@
+{
+  "$comment": "SimpleWork 预置 Skill 源清单。sources 是网上公开的免费 Skill 仓库；featured 是可一键安装的精选条目。命令：sw skills list（已安装）/ sw skills search <关键词>（在线检索）/ sw skills install <name>（从 featured 装）/ sw skills add <owner/repo/子路径>（装任意仓库里的 skill）",
+  "version": 1,
+  "sources": [
+    {
+      "id": "anthropic",
+      "name": "Anthropic 官方 Agent Skills",
+      "repo": "anthropics/skills",
+      "branch": "main",
+      "basePath": "skills",
+      "license": "Apache-2.0（其中 docx/pdf/pptx/xlsx 为 source-available，仅供个人参考）",
+      "homepage": "https://github.com/anthropics/skills"
+    },
+    {
+      "id": "superpowers",
+      "name": "Superpowers 工程方法论",
+      "repo": "obra/superpowers",
+      "branch": "main",
+      "basePath": "skills",
+      "license": "MIT",
+      "homepage": "https://github.com/obra/superpowers"
+    },
+    {
+      "id": "alirezarezvani",
+      "name": "社区工程 Skills 合集",
+      "repo": "alirezarezvani/claude-skills",
+      "branch": "main",
+      "basePath": "engineering",
+      "license": "见仓库 LICENSE",
+      "homepage": "https://github.com/alirezarezvani/claude-skills"
+    }
+  ],
+  "featured": [
+    { "name": "pdf", "source": "anthropic", "path": "pdf", "tags": ["文档"], "desc": "PDF 提取文本/表格、合并拆分、批注、填表单" },
+    { "name": "docx", "source": "anthropic", "path": "docx", "tags": ["文档"], "desc": "Word 文档创建、编辑、批注、版式处理" },
+    { "name": "pptx", "source": "anthropic", "path": "pptx", "tags": ["文档"], "desc": "PPT 生成、编辑、模板与版式调整" },
+    { "name": "xlsx", "source": "anthropic", "path": "xlsx", "tags": ["文档"], "desc": "Excel 公式、图表、数据清洗与转换" },
+    { "name": "doc-coauthoring", "source": "anthropic", "path": "doc-coauthoring", "tags": ["文档"], "desc": "与人协作撰写长文档的结构化流程" },
+    { "name": "mcp-builder", "source": "anthropic", "path": "mcp-builder", "tags": ["开发"], "desc": "从零设计与实现 MCP 服务器的完整指南" },
+    { "name": "webapp-testing", "source": "anthropic", "path": "webapp-testing", "tags": ["开发", "测试"], "desc": "用 Playwright 对本地 Web 应用做交互测试与截图验证" },
+    { "name": "frontend-design", "source": "anthropic", "path": "frontend-design", "tags": ["设计"], "desc": "生成有设计感的界面，避免通用 AI 风格" },
+    { "name": "brand-guidelines", "source": "anthropic", "path": "brand-guidelines", "tags": ["设计"], "desc": "按品牌规范（配色/字体/Logo）产出物料" },
+    { "name": "canvas-design", "source": "anthropic", "path": "canvas-design", "tags": ["设计"], "desc": "设计海报、封面等视觉图并输出 PNG" },
+    { "name": "algorithmic-art", "source": "anthropic", "path": "algorithmic-art", "tags": ["设计"], "desc": "用 p5.js 创作生成式艺术与流场作品" },
+    { "name": "theme-factory", "source": "anthropic", "path": "theme-factory", "tags": ["设计"], "desc": "为文档/幻灯片套用成套主题（配色+字体）" },
+    { "name": "web-artifacts-builder", "source": "anthropic", "path": "web-artifacts-builder", "tags": ["开发"], "desc": "构建复杂的多组件 HTML 应用（React/Tailwind/shadcn）" },
+    { "name": "internal-comms", "source": "anthropic", "path": "internal-comms", "tags": ["写作"], "desc": "内部沟通文案：状态报告、项目更新、评审请求" },
+    { "name": "slack-gif-creator", "source": "anthropic", "path": "slack-gif-creator", "tags": ["设计"], "desc": "制作 Slack 表情动画 GIF" },
+    { "name": "skill-creator", "source": "anthropic", "path": "skill-creator", "tags": ["元"], "desc": "教你写出高质量的 SKILL.md（强烈推荐先装它）" },
+    { "name": "claude-api", "source": "anthropic", "path": "claude-api", "tags": ["开发"], "desc": "Claude API / Agent SDK 用法参考" },
+    { "name": "academy-guide", "source": "anthropic", "path": "academy-guide", "tags": ["教育"], "desc": "学习与教学场景的引导式讲解" },
+    { "name": "discernment-nudge", "source": "anthropic", "path": "discernment-nudge", "tags": ["元"], "desc": "在关键决策点提醒审慎判断" },
+    { "name": "test-driven-development", "source": "superpowers", "path": "test-driven-development", "tags": ["开发", "测试"], "desc": "红-绿-重构：先写测试再写实现" },
+    { "name": "systematic-debugging", "source": "superpowers", "path": "systematic-debugging", "tags": ["开发", "调试"], "desc": "系统化定位 bug：先复现、再二分、后修复" },
+    { "name": "brainstorming", "source": "superpowers", "path": "brainstorming", "tags": ["元"], "desc": "动手前先做需求澄清与方案发散" },
+    { "name": "writing-plans", "source": "superpowers", "path": "writing-plans", "tags": ["元"], "desc": "把方案写成可执行的分步计划" },
+    { "name": "executing-plans", "source": "superpowers", "path": "executing-plans", "tags": ["元"], "desc": "按计划逐步执行并随时校验" },
+    { "name": "verification-before-completion", "source": "superpowers", "path": "verification-before-completion", "tags": ["元"], "desc": "声称完成前必须实测验证" },
+    { "name": "using-git-worktrees", "source": "superpowers", "path": "using-git-worktrees", "tags": ["开发"], "desc": "用 git worktree 隔离并行开发" },
+    { "name": "requesting-code-review", "source": "superpowers", "path": "requesting-code-review", "tags": ["开发"], "desc": "发起代码评审的规范流程" },
+    { "name": "receiving-code-review", "source": "superpowers", "path": "receiving-code-review", "tags": ["开发"], "desc": "处理评审意见的规范流程" },
+    { "name": "dispatching-parallel-agents", "source": "superpowers", "path": "dispatching-parallel-agents", "tags": ["开发"], "desc": "拆分任务给多个子代理并行处理" },
+    { "name": "subagent-driven-development", "source": "superpowers", "path": "subagent-driven-development", "tags": ["开发"], "desc": "子代理驱动的开发工作流" },
+    { "name": "finishing-a-development-branch", "source": "superpowers", "path": "finishing-a-development-branch", "tags": ["开发"], "desc": "收尾分支：清理、合并或提 PR" },
+    { "name": "writing-skills", "source": "superpowers", "path": "writing-skills", "tags": ["元"], "desc": "编写与测试 skill 的方法论" },
+    { "name": "using-superpowers", "source": "superpowers", "path": "using-superpowers", "tags": ["元"], "desc": "Superpowers 套件的总入口说明" },
+    { "name": "diagnosing-superpowers", "source": "superpowers", "path": "diagnosing-superpowers", "tags": ["元"], "desc": "诊断 skill 未被正确触发的问题" }
+  ],
+  "installed": []
+}
